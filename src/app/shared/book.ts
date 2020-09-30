@@ -1,4 +1,4 @@
-import {KeyValuePair} from "./key-value-pair";
+import {KeyValuePair} from './key-value-pair';
 
 export class Book extends KeyValuePair {
   info: string;

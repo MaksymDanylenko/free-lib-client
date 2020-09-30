@@ -1,0 +1,11 @@
+a:active fa-icon, a fa-icon{
+  color: #2B2B2B;
+}
+
+a:hover #github {
+  color: #000000;
+}
+
+a:hover #linkedin {
+  color: #0A66C2;
+}
