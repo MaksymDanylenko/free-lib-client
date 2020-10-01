@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Book} from '../shared/book';
+import {Author} from '../shared/author';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookService {
+export class AuthorService {
 
   constructor(private http: HttpClient) { }
 
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>('https://localhost:5001/api/books');
+  getAuthors(): Observable<Author[]> {
+    return this.http.get<Author[]>('https://localhost:5001/api/authors');
   }
 }

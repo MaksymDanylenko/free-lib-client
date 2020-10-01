@@ -9,12 +9,18 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {CollapseModule} from 'ngx-bootstrap/collapse';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BookListComponent } from './book-list/book-list.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    BookListComponent,
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

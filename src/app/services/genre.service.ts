@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Book} from '../shared/book';
+import {KeyValuePair} from '../shared/key-value-pair';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookService {
+export class GenreService {
 
   constructor(private http: HttpClient) { }
 
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>('https://localhost:5001/api/books');
+  getGenres(): Observable<KeyValuePair[]> {
+    return this.http.get<KeyValuePair[]>('https://localhost:5001/api/genres');
   }
 }
