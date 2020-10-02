@@ -17,6 +17,10 @@ export class BookListComponent implements OnInit {
   genres: KeyValuePair[];
   authors: Author[];
 
+  selectedCategories: number[] = [];
+  selectedGenres: number[] = [];
+  selectedAuthors: number[] = [];
+
   constructor(private bookService: BookService,
               private genreService: GenreService,
               private authorService: AuthorService) { }
@@ -24,16 +28,39 @@ export class BookListComponent implements OnInit {
   ngOnInit(): void {
     this.bookService.getBooks().subscribe(books => {
       this.books = books;
-      // console.log(this.books);
     });
     this.authorService.getAuthors().subscribe(authors => {
       this.authors = authors;
-      // console.log(this.authors);
     });
     this.genreService.getGenres().subscribe(genres => {
       this.genres = genres;
-      // console.log(this.genres);
     });
   }
 
+  addGenre(id: number): void {
+    if (this.selectedGenres.includes(id)) {
+      this.selectedGenres.splice(this.selectedGenres.indexOf(id), 1);
+    } else {
+      this.selectedGenres.push(id);
+    }
+    console.log('Genres:', this.selectedGenres);
+  }
+
+  addAuthor(id: number): void {
+    if (this.selectedAuthors.includes(id)) {
+      this.selectedAuthors.splice(this.selectedAuthors.indexOf(id), 1);
+    } else {
+      this.selectedAuthors.push(id);
+    }
+    console.log('Authors:', this.selectedAuthors);
+  }
+
+  addCategory(id: number): void {
+    if (this.selectedCategories.includes(id)) {
+      this.selectedCategories.splice(this.selectedCategories.indexOf(id), 1);
+    } else {
+      this.selectedCategories.push(id);
+    }
+    console.log('Categories:', this.selectedCategories);
+  }
 }

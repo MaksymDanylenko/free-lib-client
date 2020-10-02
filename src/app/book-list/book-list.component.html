@@ -12,15 +12,15 @@
             <div class="card-body">
               <form>
                 <label class="form-check">
-                  <input class="form-check-input" type="checkbox" value="">
+                  <input class="form-check-input" type="checkbox" value="" (change)="addCategory(1)">
                   <span class="form-check-label">1st category</span>
                 </label> <!-- form-check.// -->
                 <label class="form-check">
-                  <input class="form-check-input" type="checkbox" value="">
+                  <input class="form-check-input" type="checkbox" value="" (change)="addCategory(2)">
                   <span class="form-check-label">2nd category</span>
                 </label>  <!-- form-check.// -->
                 <label class="form-check">
-                  <input class="form-check-input" type="checkbox" value="">
+                  <input class="form-check-input" type="checkbox" value="" (change)="addCategory(3)">
                   <span class="form-check-label">3rd category</span>
                 </label>  <!-- form-check.// -->
               </form>
@@ -36,18 +36,10 @@
           <div class="filter-content">
             <div class="card-body">
               <form>
-                <label class="form-check">
-                  <input class="form-check-input" type="checkbox" value="">
-                  <span class="form-check-label">1st genre</span>
+                <label class="form-check" *ngFor="let genre of genres">
+                  <input class="form-check-input" type="checkbox" value="" (change)="addGenre(genre.id)">
+                  <span class="form-check-label">{{genre.name}}</span>
                 </label> <!-- form-check.// -->
-                <label class="form-check">
-                  <input class="form-check-input" type="checkbox" value="">
-                  <span class="form-check-label">2nd genre</span>
-                </label>  <!-- form-check.// -->
-                <label class="form-check">
-                  <input class="form-check-input" type="checkbox" value="">
-                  <span class="form-check-label">3rd genre</span>
-                </label>  <!-- form-check.// -->
               </form>
 
             </div> <!-- card-body.// -->
@@ -61,18 +53,10 @@
           <div class="filter-content">
             <div class="card-body">
               <form>
-                <label class="form-check">
-                  <input class="form-check-input" type="checkbox" value="">
-                  <span class="form-check-label">1st author</span>
+                <label class="form-check" *ngFor="let author of authors">
+                  <input class="form-check-input" type="checkbox" value="" (change)="addAuthor(author.id)">
+                  <span class="form-check-label">{{author.name}}</span>
                 </label> <!-- form-check.// -->
-                <label class="form-check">
-                  <input class="form-check-input" type="checkbox" value="">
-                  <span class="form-check-label">2nd author</span>
-                </label>  <!-- form-check.// -->
-                <label class="form-check">
-                  <input class="form-check-input" type="checkbox" value="">
-                  <span class="form-check-label">3rd author</span>
-                </label>  <!-- form-check.// -->
               </form>
 
             </div> <!-- card-body.// -->
