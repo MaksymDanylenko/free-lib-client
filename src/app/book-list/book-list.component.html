@@ -63,6 +63,27 @@
           </div>
         </article> <!-- card-group-item.// -->
 
+        <article class="card-group-item">
+          <header class="card-header" id="year-filter">
+            <h6 class="title">Year</h6>
+          </header>
+          <div class="filter-content">
+            <div class="card-body">
+              <form>
+                <div class="row">
+                <mv-slider class="col-sm-12" [(value)]="yearRange" [min]="minYear" [max]="maxYear" [range]="true" [tooltipPosition]="'top'"></mv-slider>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="fromYear" [value]="yearRange[0]">
+                </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="toYear" [value]="yearRange[1]">
+                  </div>
+                </div>
+              </form>
+            </div> <!-- card-body.// -->
+          </div>
+        </article> <!-- card-group-item.// -->
+
       </div> <!-- card.// -->
 
     </aside> <!-- col-3.// -->

@@ -12,6 +12,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BookListComponent } from './book-list/book-list.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import {NgxBootstrapSliderModule} from 'ngx-bootstrap-slider';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { AboutComponent } from './about/about.component';
     BrowserAnimationsModule,
     HttpClientModule,
     CollapseModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxBootstrapSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

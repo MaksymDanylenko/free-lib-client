@@ -16,17 +16,20 @@ export class BookListComponent implements OnInit {
   books: Book[];
   genres: KeyValuePair[];
   authors: Author[];
+  minYear: number;
+  maxYear: number;
 
   selectedCategories: number[] = [];
   selectedGenres: number[] = [];
   selectedAuthors: number[] = [];
+  yearRange: number[] = [];
 
   constructor(private bookService: BookService,
               private genreService: GenreService,
               private authorService: AuthorService) { }
 
   ngOnInit(): void {
-    this.bookService.getBooks().subscribe(books => {
+    this.bookService.getBooks('').subscribe(books => {
       this.books = books;
     });
     this.authorService.getAuthors().subscribe(authors => {
@@ -35,6 +38,9 @@ export class BookListComponent implements OnInit {
     this.genreService.getGenres().subscribe(genres => {
       this.genres = genres;
     });
+    this.minYear = 1000;
+    this.maxYear = 2020;
+    this.yearRange = [1000, 2020];
   }
 
   addGenre(id: number): void {
@@ -43,7 +49,7 @@ export class BookListComponent implements OnInit {
     } else {
       this.selectedGenres.push(id);
     }
-    console.log('Genres:', this.selectedGenres);
+    this.fetchBooks();
   }
 
   addAuthor(id: number): void {
@@ -52,7 +58,7 @@ export class BookListComponent implements OnInit {
     } else {
       this.selectedAuthors.push(id);
     }
-    console.log('Authors:', this.selectedAuthors);
+    this.fetchBooks();
   }
 
   addCategory(id: number): void {
@@ -61,6 +67,19 @@ export class BookListComponent implements OnInit {
     } else {
       this.selectedCategories.push(id);
     }
-    console.log('Categories:', this.selectedCategories);
+    this.fetchBooks();
+  }
+
+  fetchBooks(): void {
+    let parameters = '?';
+    for (const author of this.selectedAuthors) {
+      parameters = parameters + 'authors=' + author + '&';
+    }
+    for (const genre of this.selectedGenres) {
+      parameters = parameters + 'genres=' + genre + '&';
+    }
+    this.bookService.getBooks(parameters).subscribe(books => {
+      this.books = books;
+    });
   }
 }
